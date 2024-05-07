@@ -4,6 +4,8 @@ import com.gestion.usuario.model.entity.Usuario;
 import com.gestion.usuario.model.repository.UsuarioRepository;
 import com.gestion.usuario.view.UsuarioView;
 
+import java.util.Scanner;
+
 public class UsuarioController {
     private UsuarioRepository userRepository;
     private UsuarioView userView;
@@ -13,9 +15,12 @@ public class UsuarioController {
         this.userView = userView;
     }
 
+    Scanner scan = new Scanner(System.in);
+
     public void userMenuController(){
         while(true){
             Integer opcion = userView.userMenu();
+
             switch(opcion){
                 case 1:
                     crearUsuario();
@@ -69,7 +74,7 @@ public class UsuarioController {
     }
 
     public void deleteUser(){
-        Object userObject = getUsuario();//TODO: OPCION DE BORRADO CON EXPIRACION DE TIEMPO (LISTO) - ANALIZAR LOGICA PARA ELIMINACION POR PRESTAMO
+        Object userObject = getUsuario();
         boolean check = userRepository.eliminar(userObject);
         if(!check){
             userView.mensajes(2);

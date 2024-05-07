@@ -4,7 +4,22 @@ package com.gestion.prestamo.view;
 import java.util.Scanner;
 
 public class PrestamoView {
-    Scanner scan = new Scanner(System.out);
+    Scanner scan = new Scanner(System.in);
+
+    public int prestamoMenu(){
+        System.out.println("""
+                1- Generar prestamo.
+                2- Consultar prestamo.
+                3- Modificar prestamo existente.
+                4- Generar devolucion.
+                5- Eliminar prestamo.
+                6- Salir
+                """);
+        System.out.println(">Ingrese una opcion.");
+        int seleccion = scan.nextInt();
+        scan.nextLine();
+        return seleccion;
+    }
 
     public int updateMenu(){
         System.out.println("""
@@ -14,7 +29,9 @@ public class PrestamoView {
                 3- Salir.
                 """);
         System.out.println(">Ingrese una opcion: ");
-        return scan.nextInt();
+        int seleccion = scan.nextInt();
+        scan.nextLine();
+        return seleccion;
     }
 
     public Integer updateDatePlus(){
@@ -36,6 +53,12 @@ public class PrestamoView {
                 System.out.println("Actualizacion fallida.");
             case 3:
                 System.out.println("Opcion invalida, intente nuevamente.");
+                break;
+            case 4:
+                System.out.println("Devolucio fuera de termino, se aplicara una multa.");
+                break;
+            case 5:
+                System.out.println("Devolucion en termino, muchas gracias!");
                 break;
         }
     }

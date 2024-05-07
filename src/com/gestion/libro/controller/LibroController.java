@@ -4,6 +4,8 @@ import com.gestion.libro.model.entity.Libro;
 import com.gestion.libro.model.repository.LibroRepository;
 import com.gestion.libro.view.LibroView;
 
+import java.util.Scanner;
+
 public class LibroController {
     private LibroRepository libroRepository;
     private LibroView libroView;
@@ -13,9 +15,12 @@ public class LibroController {
         this.libroView = libroView;
     }
 
+    Scanner scan = new Scanner(System.in);
+
     public void libroMenuController(){
         while(true) {
             int opcion = libroView.libroMenu();
+            scan.nextLine();
             switch(opcion){
                 case 1:
                     crearLibro();

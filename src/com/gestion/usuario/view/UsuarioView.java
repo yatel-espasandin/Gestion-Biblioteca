@@ -14,20 +14,23 @@ public class UsuarioView {
                 > 5- Salir
                 """);
         System.out.println("Seleccione una opcion: ");
-        return scan.nextInt();
-
+        int seleccion = scan.nextInt();
+        scan.nextLine();
+        return seleccion;
     }
 
     public Usuario crearUsuario(){
         System.out.println(">Ingrese el nombre: ");
         String nombre = scan.nextLine();
 
+
         System.out.println(">Ingrese el apellido: ");
         String apellido = scan.nextLine();
 
+
+        System.out.println(">Ingrese el tipo de Usuario (estudiante/profesor): ");
         String userType = null;
-        while (!userType.equalsIgnoreCase("profesor") && !userType.equalsIgnoreCase("estudiante")) {
-            System.out.println(">Ingrese el tipo de Usuario (estudiante/profesor): ");
+        while (userType == null || (!userType.equalsIgnoreCase("profesor") && !userType.equalsIgnoreCase("estudiante"))) {
             String temp = scan.nextLine();
             if (temp.equalsIgnoreCase("profesor") || temp.equalsIgnoreCase("estudiante")) {
                 userType = temp;
@@ -46,7 +49,7 @@ public class UsuarioView {
     }
 
     public String getByName(){
-        System.out.println(">Ingrese el ID del usuario que desea buscar: ");
+        System.out.println(">Ingrese el nombre del usuario que desea buscar: ");
         return scan.nextLine();
     }
 
@@ -77,6 +80,4 @@ public class UsuarioView {
                 break;
         }
     }
-
-
 }

@@ -5,7 +5,7 @@ import com.gestion.libro.model.entity.Libro;
 import java.util.Scanner;
 
 public class LibroView {
-    Scanner scan = new Scanner(System.out);
+    Scanner scan = new Scanner(System.in);
 
     public Integer libroMenu(){
         System.out.println("""
@@ -16,15 +16,19 @@ public class LibroView {
                 >5- Salir.
                 """);
         System.out.println("Seleccione una opcion: ");
-        return scan.nextInt();
+        int seleccion = scan.nextInt();
+        scan.nextLine();
+        return seleccion;
     }
 
     public Libro crearLibro(){
         System.out.println(">Titulo: ");
         String titulo = scan.nextLine();
+        scan.nextLine();
 
         System.out.println(">Autor: ");
         String autor = scan.nextLine();
+        scan.nextLine();
 
         System.out.println(">Cantidad de copias:");
         Integer cantCopias = scan.nextInt();

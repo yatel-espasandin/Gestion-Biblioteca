@@ -44,6 +44,10 @@ public class PrestamoRepository implements IRepository {
 
     @Override
     public boolean eliminar(Object objeto) {
+        if(objeto!=null){
+            listPrestamo.remove((Prestamo) objeto);
+            return true;
+        }
         return false;
     }
 }

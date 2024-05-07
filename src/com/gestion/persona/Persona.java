@@ -6,7 +6,7 @@ public abstract class Persona {
     private static Integer contador = 0;
     private Integer identificacion;
 
-    public Persona(String nombre, String apellido, Integer identificacion) {
+    public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = ++contador;
